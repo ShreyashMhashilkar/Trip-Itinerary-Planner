@@ -1,4 +1,4 @@
-🗺️ Trip Itinerary Planner
+🗺️ 
 Trip Itinerary Planner is a React-based application designed to help travelers seamlessly organize their trips. With a user-friendly interface and PDF export functionality, this app ensures your travel plans are well-structured and easily accessible.
 
 ✨ Features
