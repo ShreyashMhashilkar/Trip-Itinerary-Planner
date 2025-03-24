@@ -34,39 +34,35 @@ Clone the repository:
  ```
 sh
 
-
 git clone https://github.com/ShreyashMhashilkar/Trip-Itinerary-Planner.git
-Navigate to the project directory:
+
  ```
+Navigate to the project directory:
 
  ```
 sh
-
 
 cd Trip-Itinerary-Planner
-Set up the backend:
  ```
+Set up the backend:
 
  ```
 sh
-
 
 cd backend
 npm install
 npm start
-Set up the frontend:
  ```
+Set up the frontend:
 
  ```
 sh
 
-
-
 cd ../frontend
 npm install
 npm start
-The application will be running at http://localhost:3000.
  ```
+The application will be running at http://localhost:3000.
 
 🎯 How to Use
 Plan Your Trip: Input your travel details and activities.
