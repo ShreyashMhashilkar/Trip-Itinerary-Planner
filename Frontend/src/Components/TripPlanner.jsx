@@ -33,7 +33,7 @@ function TripPlanner() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/plan-trip",
+        "https://trip-itinerary-planner.onrender.com/plan-trip",
         {
           destination,
           selectedDay: Number(duration),
