@@ -11,11 +11,12 @@ function Output() {
 
   useEffect(() => {
     setTripData(itinerary);
+    document.body.style.backgroundColor = "#ffffff"; // ✅ White background
+    document.documentElement.style.backgroundColor = "#ffffff"; // ✅ Apply to full page
   }, [itinerary]);
 
   const generatePDF = () => {
     if (!tripData || tripData.length === 0) return;
-
     const pdf = new jsPDF();
     let y = 10;
 
@@ -43,7 +44,20 @@ function Output() {
   };
 
   return (
-    <>
+    <Container
+      maxWidth="md"
+      sx={{
+        minHeight: "100vh",
+        backgroundColor: "#ffffff", // ✅ White background
+        padding: "2rem 0",
+        margin: "0 auto", // ✅ Centering the container
+        fontFamily: '"Poppins", sans-serif', // ✅ Modern font style
+        "@media (max-width: 600px)": {
+          padding: "1rem",
+          margin: "0 10px",
+        },
+      }}
+    >
       <Grid container justifyContent="center">
         <Typography
           variant="h4"
@@ -104,11 +118,16 @@ function Output() {
               sx={{
                 width: "100%",
                 maxWidth: "800px",
-                marginBottom: "20px",
+                marginBottom: "20px", // ✅ Added margin to prevent cards from touching
                 borderRadius: "12px",
                 padding: "15px",
                 backgroundColor: "#112240",
                 color: "#E0F2FE",
+                fontFamily: '"Poppins", sans-serif', // ✅ Apply modern font
+                lineHeight: "1.6", // ✅ Improve readability
+                "@media (max-width: 600px)": {
+                  margin: "0 10px 20px", // ✅ Add bottom margin for mobile screens
+                },
               }}
             >
               <CardContent>
@@ -162,7 +181,7 @@ function Output() {
           </Typography>
         )}
       </Grid>
-    </>
+    </Container>
   );
 }
 
