@@ -79,30 +79,47 @@ function TripPlanner() {
           boxShadow: "0px 4px 20px rgba(0, 47, 108, 0.4)",
         }}
       >
+        {/* ✅ Centered Heading and Icon Properly */}
         <Box
           sx={{
             display: "flex",
+            flexDirection: "row",
             alignItems: "center",
             justifyContent: "center",
             gap: "0.5rem",
             mb: 1,
             width: "100%",
-            textAlign: "center", // Ensures text is properly centered
+            textAlign: "center",
+            flexWrap: "nowrap",
           }}
         >
-          <FaPlaneDeparture size={30} color="#1976D2" />
-          <Typography variant="h4" fontWeight="bold" color="#1976D2">
+          <FaPlaneDeparture size={isMobile ? 24 : 30} color="#1976D2" />
+          <Typography
+            variant={isMobile ? "h5" : "h4"}
+            fontWeight="bold"
+            color="#1976D2"
+            sx={{ whiteSpace: "nowrap" }} // ✅ Prevents line breaks
+          >
             Trip Planner
           </Typography>
         </Box>
 
+        {/* Subtitle - Ensure Text is Centered */}
         <Typography
           variant="subtitle1"
-          sx={{ mb: 2, color: "gray", display: "flex", alignItems: "center", gap: 1, textAlign: "center" }}
+          sx={{
+            mb: 2,
+            color: "gray",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center", // ✅ Centering the subtitle
+            textAlign: "center",
+          }}
         >
           <MdOutlineExplore /> Plan your trip effortlessly!
         </Typography>
 
+        {/* Form Section */}
         <form onSubmit={handleSubmit} style={{ width: "100%" }}>
           <TextField
             placeholder="Destination *"
@@ -133,6 +150,7 @@ function TripPlanner() {
             </Select>
           </FormControl>
 
+          {/* Submit Button */}
           <Button
             fullWidth
             type="submit"
