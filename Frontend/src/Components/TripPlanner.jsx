@@ -75,8 +75,8 @@ function TripPlanner() {
         boxShadow="0px 10px 30px rgba(0, 47, 108, 0.2)"
         sx={{
           background: "linear-gradient(to bottom, #ffffff, #f9f9f9)",
-          mx: isMobile ? 2 : 0, // Margin for mobile view
-          boxShadow: "0px 4px 20px rgba(0, 47, 108, 0.4)", // Gradient shadow effect
+          mx: isMobile ? 2 : 0,
+          boxShadow: "0px 4px 20px rgba(0, 47, 108, 0.4)",
         }}
       >
         <Box
@@ -86,6 +86,8 @@ function TripPlanner() {
             justifyContent: "center",
             gap: "0.5rem",
             mb: 1,
+            width: "100%",
+            textAlign: "center", // Ensures text is properly centered
           }}
         >
           <FaPlaneDeparture size={30} color="#1976D2" />
@@ -96,7 +98,7 @@ function TripPlanner() {
 
         <Typography
           variant="subtitle1"
-          sx={{ mb: 2, color: "gray", display: "flex", alignItems: "center", gap: 1 }}
+          sx={{ mb: 2, color: "gray", display: "flex", alignItems: "center", gap: 1, textAlign: "center" }}
         >
           <MdOutlineExplore /> Plan your trip effortlessly!
         </Typography>

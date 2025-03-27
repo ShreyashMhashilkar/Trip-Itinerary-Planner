@@ -58,7 +58,8 @@ function Output() {
         },
       }}
     >
-      <Grid container justifyContent="center">
+      {/* Heading with Proper Centered Icon */}
+      <Grid container justifyContent="center" alignItems="center" direction="column">
         <Typography
           variant="h4"
           gutterBottom
@@ -68,18 +69,52 @@ function Output() {
             textAlign: "center",
             marginBottom: "1.5rem",
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
-            gap: "10px",
           }}
         >
-          <FaMapMarkedAlt /> Your Trip Itinerary
+          <FaMapMarkedAlt style={{ fontSize: "30px", marginBottom: "5px" }} />
+          Your Trip Itinerary
         </Typography>
       </Grid>
 
-      <div style={{ display: "flex", justifyContent: "center", gap: "10px", marginBottom: "1.5rem" }}>
-        <Link to="/" style={{ textDecoration: "none" }}>
+      {/* Buttons Section with Proper Alignment */}
+      <Grid
+        container
+        justifyContent="center"
+        spacing={2}
+        sx={{
+          flexWrap: "wrap",
+          gap: "10px",
+          marginBottom: "1.5rem",
+          "@media (max-width: 600px)": {
+            flexDirection: "column",
+            alignItems: "center",
+          },
+        }}
+      >
+        <Grid item>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Button
+              variant="contained"
+              sx={{
+                background: "linear-gradient(45deg, #1E3A8A, #3B82F6)",
+                color: "#fff",
+                fontWeight: "bold",
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+              }}
+            >
+              <FaArrowLeft /> Plan Another Trip
+            </Button>
+          </Link>
+        </Grid>
+        <Grid item>
           <Button
             variant="contained"
+            onClick={generatePDF}
+            disabled={!tripData || tripData.length === 0}
             sx={{
               background: "linear-gradient(45deg, #1E3A8A, #3B82F6)",
               color: "#fff",
@@ -89,26 +124,12 @@ function Output() {
               gap: "10px",
             }}
           >
-            <FaArrowLeft /> Plan Another Trip
+            <FaFileDownload /> Download PDF
           </Button>
-        </Link>
-        <Button
-          variant="contained"
-          onClick={generatePDF}
-          disabled={!tripData || tripData.length === 0}
-          sx={{
-            background: "linear-gradient(45deg, #1E3A8A, #3B82F6)",
-            color: "#fff",
-            fontWeight: "bold",
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-          }}
-        >
-          <FaFileDownload /> Download PDF
-        </Button>
-      </div>
+        </Grid>
+      </Grid>
 
+      {/* Itinerary Cards */}
       <Grid container justifyContent="center">
         {tripData && tripData.length > 0 ? (
           tripData.map((day, index) => (
